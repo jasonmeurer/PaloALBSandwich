@@ -15,7 +15,7 @@ Instructions
 	* The CFT creates a sgJumpbox Security Group for use allowing ports 22 and 3389.
 4. Update the "alb-internal" object with the FQDN of the Internal ALB available on the Outputs of the CFT.
 5. Update the "AWS-NAT-UNTRUST" object with the Firewall's Untrust IP address available on the Outputs of the CFT.
-6. Test access do the External ALB FQDN.
+6. Test access to the External ALB FQDN.
 
 
 **Documentation**
