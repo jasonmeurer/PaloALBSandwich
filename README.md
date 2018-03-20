@@ -9,7 +9,7 @@ Instructions
 0. Create the Bootstrap bucket place the Bootstrap.xml and init-cfg.txt files into the Config folder.
 	* [Creating the Bootstrap Bucket](https://www.paloaltonetworks.com/documentation/71/virtualization/virtualization/bootstrap-the-vm-series-firewall/bootstrap-package)
 1. Deploy the CFT
-2. Launch a Jumpbox into either NATGateway Subnet.
+2. Launch a Jumpbox into either NATGateway Subnet with an EIP.
 3. Access the Jumpbox to gain access to the Firewall GUIs.
 	* Username/Password - pandemo/demopassword
 	* The CFT creates a sgJumpbox Security Group for use allowing ports 22 and 3389.
