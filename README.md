@@ -17,7 +17,7 @@ Instructions
 5. Update the "AWS-NAT-UNTRUST" object with the Firewall's Untrust IP address available on the Outputs of the CFT.
 6. Test access to the External ALB FQDN.
 
-**API commands to update the necessary objects
+**API commands to update the necessary objects**
 
 	Get API Key
 curl -X GET 'https://**Firewall Management IP**/api/?type=keygen&user=pandemo&password=demopassword' -k
@@ -25,18 +25,17 @@ curl -X GET 'https://**Firewall Management IP**/api/?type=keygen&user=pandemo&pa
 	API key for pandemo.  Replace in the following curl commands if different.
 LUFRPT1Zd2pYUGpkMUNrVEZlb3hROEQyUm95dXNGRkU9N0d4RGpTN2VZaVZYMVVoS253U0p6dlk3MkM0SDFySEh2UUR4Y3hzK2g3ST0=
 
-Working
-	Show address objects
+	Show address objects (Replace Firewall MGMT IP)
 curl -kg -X GET 'https://**Firewall Management IP**/api/?type=config&action=get&key=LUFRPT1Zd2pYUGpkMUNrVEZlb3hROEQyUm95dXNGRkU9N0d4RGpTN2VZaVZYMVVoS253U0p6dlk3MkM0SDFySEh2UUR4Y3hzK2g3ST0=&xpath=/config/devices/entry/vsys/entry/address' 
 
-	Untrust Interface
-curl -kg -X GET 'https://**Firewall Management IP**/api/?key=LUFRPT1Zd2pYUGpkMUNrVEZlb3hROEQyUm95dXNGRkU9N0d4RGpTN2VZaVZYMVVoS253U0p6dlk3MkM0SDFySEh2UUR4Y3hzK2g3ST0=&type=config&action=set&xpath=/config/devices/entry/vsys/entry/address/entry[@name="AWS-NAT-UNTRUST"]&element=<ip-netmask>**Firewall Untrust IP**</ip-netmask>'
+	Untrust Interface (Replace Firewall MGMT IP and Untrust IP)
+curl -kg -X GET 'https://**Firewall Management IP**/api/?key=LUFRPT1Zd2pYUGpkMUNrVEZlb3hROEQyUm95dXNGRkU9N0d4RGpTN2VZaVZYMVVoS253U0p6dlk3MkM0SDFySEh2UUR4Y3hzK2g3ST0=&type=config&action=set&xpath=/config/devices/entry/vsys/entry/address/entry[@name="AWS-NAT-UNTRUST"]&element=<ip-netmask>##Firewall Untrust IP##</ip-netmask>'
 
-	alb-internal IP
-curl -kg -X GET 'https://**Firewall Management IP**/api/?key=LUFRPT1Zd2pYUGpkMUNrVEZlb3hROEQyUm95dXNGRkU9N0d4RGpTN2VZaVZYMVVoS253U0p6dlk3MkM0SDFySEh2UUR4Y3hzK2g3ST0=&type=config&action=set&xpath=/config/devices/entry/vsys/entry/address/entry[@name="alb-internal"]&element=<ip-netmask>**Internal ALB IP**</ip-netmask>' 
+	alb-internal IP (Replace Firewall MGMT IP and ALB IP)  To Be removed once FQDN is working
+curl -kg -X GET 'https://**Firewall Management IP**/api/?key=LUFRPT1Zd2pYUGpkMUNrVEZlb3hROEQyUm95dXNGRkU9N0d4RGpTN2VZaVZYMVVoS253U0p6dlk3MkM0SDFySEh2UUR4Y3hzK2g3ST0=&type=config&action=set&xpath=/config/devices/entry/vsys/entry/address/entry[@name="alb-internal"]&element=<ip-netmask>##Internal ALB IP##</ip-netmask>' 
 
-	alb-fqdn
-curl -kg -X GET 'https://**Firewall Management IP**/api/?key=LUFRPT1Zd2pYUGpkMUNrVEZlb3hROEQyUm95dXNGRkU9N0d4RGpTN2VZaVZYMVVoS253U0p6dlk3MkM0SDFySEh2UUR4Y3hzK2g3ST0=&type=config&action=set&xpath=/config/devices/entry/vsys/entry/address/entry[@name="alb-fqdn"]&element=<fqdn>**Internal ALB FQDN**</fqdn>'
+	alb-fqdn (Replace Firewall MGMT IP and ALB FQDN)
+curl -kg -X GET 'https://**Firewall Management IP**/api/?key=LUFRPT1Zd2pYUGpkMUNrVEZlb3hROEQyUm95dXNGRkU9N0d4RGpTN2VZaVZYMVVoS253U0p6dlk3MkM0SDFySEh2UUR4Y3hzK2g3ST0=&type=config&action=set&xpath=/config/devices/entry/vsys/entry/address/entry[@name="alb-fqdn"]&element=<fqdn>##Internal ALB FQDN##</fqdn>'
 	
 	Commit
 curl -kg -X GET 'https://**Firewall Management IP**/api/?type=commit&cmd=<commit></commit>&key=LUFRPT1Zd2pYUGpkMUNrVEZlb3hROEQyUm95dXNGRkU9N0d4RGpTN2VZaVZYMVVoS253U0p6dlk3MkM0SDFySEh2UUR4Y3hzK2g3ST0='
