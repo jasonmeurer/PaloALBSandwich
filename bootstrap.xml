@@ -457,7 +457,9 @@
           <address>
             <entry name="AWS-NAT-UNTRUST">
               <ip-netmask>192.168.1.44</ip-netmask>
-              <description>UNTRUST-IP-address</description>
+            </entry>
+            <entry name="alb-fqdn">
+              <fqdn>www.paloaltonetworks.com</fqdn>
             </entry>
             <entry name="alb-internal">
               <ip-netmask>192.168.2.88</ip-netmask>
