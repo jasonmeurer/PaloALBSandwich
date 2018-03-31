@@ -1,6 +1,6 @@
 {
   "AWSTemplateFormatVersion" : "2010-09-09",
-  "Description" : "Creates a Load Balancer Sandwich, External LB and Internal NLB, with two firewalls and two web servers",
+  "Description" : "Creates an Load Balancer Sandwich, External LB and Internal NLB, with two firewalls and two web servers",
   	"Parameters": {
   		"WebInstanceType": {
 	      "Description": "WebServer EC2 instance type",
